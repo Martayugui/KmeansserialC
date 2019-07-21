@@ -1,0 +1,23 @@
+11:30:45 **** Incremental Build of configuration Debug for project KmeansProject ****
+make all 
+Building file: ../src/main.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function ‘main’:
+../src/main.c:32:45: warning: passing argument 5 of ‘readParAndImg’ from incompatible pointer type [-Wincompatible-pointer-types]
+    readParAndImg (rows,columns,bands,pixels,&image,&par,"Parameters.txt", "Op4C3.txt");
+                                             ^
+In file included from ../src/main.c:1:0:
+../src/read_par_and_img.h:25:6: note: expected ‘float *’ but argument is of type ‘float **’
+ void readParAndImg (int rows,int columns,int bands,int pixels,float *image,parameters *par, char * namefile, char *nameimage);
+      ^~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: KmeansProject
+Invoking: Cross GCC Linker
+gcc  -o "KmeansProject"  ./src/main.o ./src/read_par_and_img.o   
+Finished building target: KmeansProject
+ 
+
+11:30:45 Build Finished. 0 errors, 1 warnings. (took 304ms)
+

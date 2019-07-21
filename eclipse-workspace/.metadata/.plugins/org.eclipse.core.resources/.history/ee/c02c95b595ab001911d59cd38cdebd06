@@ -1,0 +1,48 @@
+#include "ManageIO.h"
+#include "KMeans.h"
+#include "BitmapWriter.h"
+
+/* 3 struct are used:
+preProcessedImage contains the image to analyze
+parameters contains the details necessary for the analysis
+kMeansCluster contains the results, that is the cluster to which each pixel belongs, content of assignedCluster */
+
+int main(int argc, char **argv) {
+
+	float *image;
+	int pixels;
+	int bands;
+	int columns;
+	int rows;
+	bands=128;
+	rows=270;
+    columns=233;
+	pixels= columns*rows;
+	struct parameters par;
+
+	if (argc!= 2) {
+		printf("Incorrect number of arguments, the program requires as the only argument the name of the parameter file\n");
+	}
+
+	if (argv[1] == NULL) {
+		printf("As an argument, enter the name of the parameter file\n ");
+	}else{
+
+		readPar(argv[1], &par);
+		readImg(par.namefile, &ppimg);
+
+		start = clock();
+		kMeans(&ppimg, &par, &kmeans);
+		stop = clock();
+
+		time = ((double)stop - start) / CLOCKS_PER_SEC;
+		printf("Time of execution file %s with %d pixel e %d bands: %lf", par.namefile, ppimg.pixels, ppimg.b, time);
+
+		writeLabel("assignedClusterFinal.txt", kmeans.assignedCluster, ppimg.r, ppimg.c);
+		writeBMP(kmeans.assignedCluster, ppimg.r, ppimg.c, par.nameimage);
+	}
+	free(ppimg.img);
+	free(kmeans.assignedCluster);
+
+	return 0;
+}

@@ -1,0 +1,42 @@
+#include "read_par_and_img.h"
+
+
+/* 3 struct are used:
+preProcessedImage contains the image to analyze
+parameters contains the details necessary for the analysis
+kMeansCluster contains the results, that is the cluster to which each pixel belongs, content of assignedCluster */
+
+int main(int argc, char **argv) {
+
+
+	//struct preProcessedImage ppimg;
+	float *image;
+	int pixels;
+	int bands;
+	int columns;
+	int rows;
+	bands=128;
+    rows=270;
+    columns=233;
+	pixels= columns*rows;
+
+	image = (float *)malloc(pixels * bands * sizeof(float));
+	struct parameters par;
+	//struct KMeansCluster kmeans;
+
+	if (argc!= 2) {
+		printf("Incorrect number of arguments, the program requires as the only argument the name of the parameter file\n");
+	}
+
+	if (argv[1] == NULL) {
+		printf("As an argument, enter the name of the parameter file\n ");
+	}else{
+
+
+		readParAndImg (rows,columns,bands,pixels,&image,&par,argv[1], "Op4C3.txt")
+
+
+	}
+
+	return 0;
+}

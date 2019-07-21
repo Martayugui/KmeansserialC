@@ -1,0 +1,11 @@
+#include "read_par_and_img.h"
+
+
+/* 3 struct are used:
+preProcessedImage contains the image to analyze
+parameters contains the details necessary for the analysis
+kMeansCluster contains the results, that is the cluster to which each pixel belongs, content of assignedCluster */
+int main(void) {
+	puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
+	return EXIT_SUCCESS;
+}

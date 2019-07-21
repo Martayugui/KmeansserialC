@@ -1,0 +1,149 @@
+11:17:32 **** Incremental Build of configuration Debug for project KmeansProject ****
+make all 
+Building file: ../src/KmeansProject.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/KmeansProject.d" -MT"src/KmeansProject.o" -o "src/KmeansProject.o" "../src/KmeansProject.c"
+../src/KmeansProject.c: In function ‘readParAndImg’:
+../src/KmeansProject.c:14:16: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+ int main(void) {
+                ^
+../src/KmeansProject.c:19:1: error: expected ‘{’ at end of input
+ }
+ ^
+src/subdir.mk:21: recipe for target 'src/KmeansProject.o' failed
+make: *** [src/KmeansProject.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+11:17:46 **** Incremental Build of configuration Debug for project KmeansProject ****
+make all 
+Building file: ../src/KmeansProject.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/KmeansProject.d" -MT"src/KmeansProject.o" -o "src/KmeansProject.o" "../src/KmeansProject.c"
+Finished building: ../src/KmeansProject.c
+ 
+Building file: ../src/read_par_and_img.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/read_par_and_img.d" -MT"src/read_par_and_img.o" -o "src/read_par_and_img.o" "../src/read_par_and_img.c"
+../src/read_par_and_img.c: In function ‘readParAndImg’:
+../src/read_par_and_img.c:14:14: error: storage class specified for parameter ‘fp’
+ static FILE *fp ;
+              ^~
+../src/read_par_and_img.c:15:14: error: storage class specified for parameter ‘fp1’
+ static FILE *fp1;
+              ^~~
+../src/read_par_and_img.c:17:128: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+ void readParAndImg (int rows,int columns,int bands,int pixels,float *image,parameters *par, char * namefile, char *nameimage)  {
+                                                                                                                                ^
+In file included from ../src/read_par_and_img.c:1:0:
+../src/read_par_and_img.h:25:6: error: old-style parameter declarations in prototyped function definition
+ void readParAndImg (int rows,int columns,int bands,int pixels,float *image,parameters *par, char * namefile, char *nameimage)
+      ^~~~~~~~~~~~~
+../src/read_par_and_img.c:61:1: error: expected ‘{’ at end of input
+src/subdir.mk:21: recipe for target 'src/read_par_and_img.o' failed
+ }
+ ^
+make: *** [src/read_par_and_img.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+11:24:19 **** Incremental Build of configuration Debug for project KmeansProject ****
+make all 
+Building file: ../src/main.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function ‘readParAndImg’:
+../src/main.c:9:33: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+ int main(int argc, char **argv) {
+                                 ^
+../src/main.c:36:1: error: expected ‘{’ at end of input
+ }
+ ^
+src/subdir.mk:21: recipe for target 'src/main.o' failed
+make: *** [src/main.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+11:28:01 **** Incremental Build of configuration Debug for project KmeansProject ****
+make all 
+Building file: ../src/main.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function ‘readParAndImg’:
+../src/main.c:9:33: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+ int main(int argc, char **argv) {
+                                 ^
+../src/main.c:36:1: error: expected ‘{’ at end of input
+ }
+ ^
+src/subdir.mk:21: recipe for target 'src/main.o' failed
+make: *** [src/main.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+11:28:13 **** Incremental Build of configuration Debug for project KmeansProject ****
+make all 
+Building file: ../src/main.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function ‘readParAndImg’:
+../src/main.c:9:33: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+src/subdir.mk:21: recipe for target 'src/main.o' failed
+ int main(int argc, char **argv) {
+                                 ^
+../src/main.c:14:1: error: expected ‘{’ at end of input
+ }
+ ^
+make: *** [src/main.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+11:29:08 **** Incremental Build of configuration Debug for project KmeansProject ****
+make all 
+Building file: ../src/main.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function ‘readParAndImg’:
+../src/main.c:9:33: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+ int main(int argc, char **argv) {
+                                 ^
+../src/main.c:14:1: error: expected ‘{’ at end of input
+ }
+ ^
+src/subdir.mk:21: recipe for target 'src/main.o' failed
+make: *** [src/main.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+11:30:26 **** Incremental Build of configuration Debug for project KmeansProject ****
+make all 
+Building file: ../src/main.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building file: ../src/read_par_and_img.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/read_par_and_img.d" -MT"src/read_par_and_img.o" -o "src/read_par_and_img.o" "../src/read_par_and_img.c"
+../src/read_par_and_img.c: In function ‘readParAndImg’:
+../src/read_par_and_img.c:36:21: warning: format ‘%s’ expects argument of type ‘char *’, but argument 3 has type ‘char (*)[10]’ [-Wformat=]
+   scan=fscanf(fp, "%s", &s);
+                    ~^   ~~
+../src/read_par_and_img.c:24:11: warning: unused variable ‘n’ [-Wunused-variable]
+     float n;
+           ^
+Finished building: ../src/read_par_and_img.c
+ 
+Building target: KmeansProject
+Invoking: Cross GCC Linker
+gcc  -o "KmeansProject"  ./src/main.o ./src/read_par_and_img.o   
+Finished building target: KmeansProject
+ 
+11:30:45 **** Incremental Build of configuration Debug for project KmeansProject ****
+make all 
+Building file: ../src/main.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function ‘main’:
+../src/main.c:32:45: warning: passing argument 5 of ‘readParAndImg’ from incompatible pointer type [-Wincompatible-pointer-types]
+    readParAndImg (rows,columns,bands,pixels,&image,&par,"Parameters.txt", "Op4C3.txt");
+                                             ^
+In file included from ../src/main.c:1:0:
+../src/read_par_and_img.h:25:6: note: expected ‘float *’ but argument is of type ‘float **’
+ void readParAndImg (int rows,int columns,int bands,int pixels,float *image,parameters *par, char * namefile, char *nameimage);
+      ^~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: KmeansProject
+Invoking: Cross GCC Linker
+gcc  -o "KmeansProject"  ./src/main.o ./src/read_par_and_img.o   
+Finished building target: KmeansProject
+ 
