@@ -12,7 +12,4 @@ typedef  struct parameters {
 	int verbose;
 }parameters;
 
-void readParAndImg (int rows,int columns,int bands,int pixels,float *image,parameters *par,char *namefile,char *nameimage);
-
-
-
+void readParAndImg (int rows,int columns,int bands,int pixels,float *image,struct parameters *par,char *namefile,char *nameimage);

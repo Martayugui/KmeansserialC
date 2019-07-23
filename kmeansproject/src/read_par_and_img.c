@@ -14,7 +14,7 @@
 static FILE *fp ;
 static FILE *fp1;
 
-void readParAndImg (int rows,int columns,int bands,int pixels,float *image,parameters *par,char *namefile,char *nameimage) {
+void readParAndImg (int rows,int columns,int bands,int pixels,float *image,struct parameters *par,char *namefile,char *nameimage) {
 
 	fp = fopen(namefile, "r");
 	fp1 = fopen(nameimage, "r");
@@ -23,7 +23,7 @@ void readParAndImg (int rows,int columns,int bands,int pixels,float *image,param
     float n;
 	int i;
 	int j;
-	image=(float *)malloc(pixels * bands * sizeof(float));;
+	image=(float *)malloc(pixels * bands * sizeof(float));
         
     rewind(fp);
     rewind(fp1);
@@ -43,7 +43,8 @@ void readParAndImg (int rows,int columns,int bands,int pixels,float *image,param
 			fscanf(fp, "%d", &par->verbose);
 		}
 	}
-	printf("parameters k: %d\t minErr: %f\t maxIter: %d\n",par->k, par->minErr, par->maxIter);
+	//printf("parameters k: %d\t minErr: %f\t maxIter: %d\n",par->k, par->minErr, par->maxIter);
+	fflush(stdout);
 /* reads the image and populates the corresponding struct */
 	
 	for (i = 0; i<pixels; i++) {
@@ -51,6 +52,8 @@ void readParAndImg (int rows,int columns,int bands,int pixels,float *image,param
 			fscanf(fp1, "%f", &image[bands*i + j]);
 		}
 	}
+	float p[1];
+	p[0]=image[3142];
 
 	fclose(fp);
     fclose(fp1);

@@ -6,7 +6,10 @@ preProcessedImage contains the image to analyze
 parameters contains the details necessary for the analysis
 kMeansCluster contains the results, that is the cluster to which each pixel belongs, content of assignedCluster */
 
-int main(int argc, char **argv) {
+
+int main() {
+
+
 
 	float *image;
 	int pixels;
@@ -16,12 +19,16 @@ int main(int argc, char **argv) {
 	bands=128;
 	rows=270;
 	columns=233;
-	pixels= columns*rows;
+	pixels= columns*rows; //62910
 	struct parameters par;
-
-
-
+	int *assignedCluster;
+	int i;
+	int j;
+while (1) {
     readParAndImg (rows,columns,bands,pixels,&image,&par,"Parameters.txt","Op4C3.txt");
-
-	return 0;
+    float p[1];
+    p[0]=image[3142];
+    pepito(rows, columns, bands,pixels,&image, &par, &assignedCluster);
+}
+exit(0);
 }
