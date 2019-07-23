@@ -22,7 +22,7 @@ void pepito(int rows, int columns, int bands,int pixels,float *image, struct par
 
 	assignedCluster = (int *)malloc(pixels * sizeof(int));
 	float *clusterCentroids;
-
+	clusterCentroids = (float *)malloc(par->k * sizeof(float));
 	float *previousCentroids;
 	previousCentroids = (float *)malloc(par->k*bands*sizeof(float));
 	memset(previousCentroids, 0, par->k*bands* sizeof(float));
@@ -30,7 +30,7 @@ void pepito(int rows, int columns, int bands,int pixels,float *image, struct par
 	int nIter = 0;
 
 	printf("hola");
-	initializeCluster(clusterCentroids, par->k,pixels,bands,image);
+	initializeCluster(clusterCentroids, par->k,pixels,bands,&image);
 	error=computeError(clusterCentroids, previousCentroids, par->k, bands);
 
 	float *centroidDistances;
@@ -60,7 +60,6 @@ void initializeCluster(float *clusterCentroids, int k, int pixels, int bands, fl
 
 	int *indicesCentroids;
 		indicesCentroids = (int *)malloc(k * sizeof(int));
-		clusterCentroids = (float *)malloc(k*bands* sizeof(float));
 		srand(time(NULL));
 		int nsost;
 		for (int i = 0; i < k; i++) {
@@ -83,13 +82,7 @@ void initializeCluster(float *clusterCentroids, int k, int pixels, int bands, fl
 			for (int i = 0; i < pixels; i++) {
 				for (int j = 0; j < bands; j++) {
 					if (indicesCentroids[z]-1 == i) {
-						int p=j;
-						int q=i;
-						int c=z;
-						float *pl;
-						pl=&image[bands*i + j];
-						float ppl=*pl;
-						clusterCentroids[bands*z + j] = 0.23;
+						clusterCentroids[bands*z + j]=image[bands*i + j];
 
 					}
 				}

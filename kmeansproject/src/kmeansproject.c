@@ -9,9 +9,6 @@ kMeansCluster contains the results, that is the cluster to which each pixel belo
 
 int main() {
 
-
-
-	float *image;
 	int pixels;
 	int bands;
 	int columns;
@@ -20,15 +17,14 @@ int main() {
 	rows=270;
 	columns=233;
 	pixels= columns*rows; //62910
+	float img;
 	struct parameters par;
 	int *assignedCluster;
 	int i;
 	int j;
 while (1) {
-    readParAndImg (rows,columns,bands,pixels,&image,&par,"Parameters.txt","Op4C3.txt");
-    float p[1];
-    p[0]=image[3142];
-    pepito(rows, columns, bands,pixels,&image, &par, &assignedCluster);
+    readParAndImg (rows,columns,bands,pixels,&img,&par,"Parameters.txt","Op4C3.txt");
+    pepito(rows, columns, bands,pixels,&img, &par, &assignedCluster);
 }
 exit(0);
 }
