@@ -17,14 +17,21 @@ int main() {
 	rows=270;
 	columns=233;
 	pixels= columns*rows; //62910
-	float img;
+	float *img;
+	img = (float *)malloc(pixels * bands * sizeof(float));
 	struct parameters par;
 	int *assignedCluster;
 	int i;
 	int j;
-while (1) {
-    readParAndImg (rows,columns,bands,pixels,&img,&par,"Parameters.txt","Op4C3.txt");
-    pepito(rows, columns, bands,pixels,&img, &par, &assignedCluster);
-}
+
+    readParAndImg (rows,columns,bands,pixels,img,&par,"Parameters.txt","Op4C3.txt");
+    for (i = 0; i<pixels; i++) {
+    		for (j = 0; j < bands; j++) {
+    			printf("%f\t", img[bands*i + j]);
+    		}
+    printf("\n");
+    }
+    pepito(rows, columns, bands,pixels,img, &par, &assignedCluster);
+
 exit(0);
 }

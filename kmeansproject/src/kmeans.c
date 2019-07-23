@@ -29,8 +29,8 @@ void pepito(int rows, int columns, int bands,int pixels,float *image, struct par
 	float error=0.0;
 	int nIter = 0;
 
-	printf("hola");
-	initializeCluster(clusterCentroids, par->k,pixels,bands,&image);
+
+	initializeCluster(clusterCentroids, par->k,pixels,bands,image);
 	error=computeError(clusterCentroids, previousCentroids, par->k, bands);
 
 	float *centroidDistances;
@@ -126,7 +126,7 @@ void computeDistance(int *assignedCluster, float *centroidDistances, float *clus
 			centroidDistances[j] = (acosf(p / (sqrtf(n1)*sqrtf(n2))))*180.0/3.14;
 		}
 		assignedCluster[i] = findMinimum(centroidDistances, k)+1;
-		printf("%d\t",assignedCluster[i]);
+		//printf("%d\t",assignedCluster[i]);
 	}
 }
 

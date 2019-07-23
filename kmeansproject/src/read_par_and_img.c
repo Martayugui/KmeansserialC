@@ -25,7 +25,7 @@ void readParAndImg (int rows,int columns,int bands,int pixels,float *image,struc
 	int j;
     rewind(fp);
     rewind(fp1);
-    image = (float *)malloc(pixels * bands * sizeof(float));
+    //image = (float *)malloc(pixels * bands * sizeof(float));
 
 
 /* reads the parameters and populates the corresponding struct */
@@ -51,13 +51,6 @@ void readParAndImg (int rows,int columns,int bands,int pixels,float *image,struc
 			fscanf(fp1, "%f", &image[bands*i + j]);
 		}
 	}
-	for (i = 0; i<pixels; i++) {
-			for (j = 0; j < bands; j++) {
-				printf("%f\t", image[bands*i + j]);
-			}
-			printf("\n");
-	}
-
 
 	fclose(fp);
     fclose(fp1);
