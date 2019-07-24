@@ -21,17 +21,20 @@ int main() {
 	img = (float *)malloc(pixels * bands * sizeof(float));
 	struct parameters par;
 	int *assignedCluster;
+	assignedCluster = (int *)malloc(pixels * sizeof(int));
 	int i;
 	int j;
 
     readParAndImg (rows,columns,bands,pixels,img,&par,"Parameters.txt","Op4C3.txt");
-    for (i = 0; i<pixels; i++) {
+   /* for (i = 0; i<pixels; i++) {
     		for (j = 0; j < bands; j++) {
     			printf("%f\t", img[bands*i + j]);
     		}
     printf("\n");
-    }
-    pepito(rows, columns, bands,pixels,img, &par, &assignedCluster);
-
+    }*/
+    kmeansfunction(rows, columns, bands,pixels,img, &par, assignedCluster);
+    writeResults (rows, columns, assignedCluster);
+    free(img);
+    free(assignedCluster);
 exit(0);
 }

@@ -42,7 +42,7 @@ void readParAndImg (int rows,int columns,int bands,int pixels,float *image,struc
 			fscanf(fp, "%d", &par->verbose);
 		}
 	}
-	//printf("parameters k: %d\t minErr: %f\t maxIter: %d\n",par->k, par->minErr, par->maxIter);
+	printf("parameters k: %d\t minErr: %f\t maxIter: %d\n",par->k, par->minErr, par->maxIter);
 	fflush(stdout);
 /* reads the image and populates the corresponding struct */
 	
