@@ -110,7 +110,6 @@ void writeResults (int rows, int columns, int *assignedCluster)  {
 	fwrite(bmpfileheader, 1, 14, f);
 	fwrite(bmpinfoheader, 1, 40, f);
 	//for (i = 0; i<h; i++)
-	printf("hola");
 	for (i = columns-1; i>=0; i--)
 	{
 		fwrite(img + (rows*(columns - i - 1) * 3), 3, rows, f);

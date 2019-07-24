@@ -14,10 +14,8 @@
 
 void kmeansfunction(int rows, int columns, int bands,int pixels,float *image, struct parameters *par, int *assignedCluster) {
 
-	float *clusterCentroids;
-	clusterCentroids = (float *)malloc(par->k* bands*sizeof(float));
-	float *previousCentroids;
-	previousCentroids = (float *)malloc(par->k*bands*sizeof(float));
+	float clusterCentroids[par->k* bands];
+	float previousCentroids[par->k*bands];
 	memset(previousCentroids, 0, par->k*bands * sizeof(float));
 	float error=0;
 	int nIter = 0;
@@ -25,8 +23,7 @@ void kmeansfunction(int rows, int columns, int bands,int pixels,float *image, st
 	initializeCluster(clusterCentroids, par->k,pixels,bands, image);
 	error=computeError(clusterCentroids, previousCentroids, par->k, bands);
 
-	float *centroidDistances;
-	centroidDistances = (float *)malloc(par->k * sizeof(float));
+	float centroidDistances[par->k];
 
 	/* iterative process: the analysis stops when error is below a minimum threshold or after a maximum number of iteration */
 	while (error > par->minErr && nIter < par->maxIter) {
@@ -43,18 +40,13 @@ void kmeansfunction(int rows, int columns, int bands,int pixels,float *image, st
 		}
 	}
 
-	free(centroidDistances);
-	free(clusterCentroids);
-	free(previousCentroids);
-
 }
 
 /* assignes an initial value to the centroids: k (number of clusters, one of the parameters) random non-repeated numbers are extracted as indices;
 pixels of preProcessedImage corresponding to these indices are the first centroids of the clusters */
 void initializeCluster(float *clusterCentroids, int k, int pixels, int bands, float *image) {
 
-	int *indicesCentroids;
-	indicesCentroids = (int *)malloc(k * sizeof(int));
+	int indicesCentroids[k];
 
 	srand(time(NULL));
 	int nsost;
@@ -83,7 +75,6 @@ void initializeCluster(float *clusterCentroids, int k, int pixels, int bands, fl
 			}
 		}
 	}
-	free(indicesCentroids);
 }
 
 /* calculates error between current and previous centroids:
@@ -107,7 +98,6 @@ float computeError(float *clusterCentroids, float *previousCentroids, int r, int
  assignedCluster is filled  with the number of cluster to which each pixel is assigned */
 void computeDistance(int *assignedCluster, float *centroidDistances, int pixels, int bands, float *clusterCentroids, float *image, int k) {
 
-printf("gola");
 	for (int i = 0; i < pixels; i++) {
 		for (int j = 0; j < k; j++) {
 			float p = 0;
@@ -121,7 +111,6 @@ printf("gola");
 			centroidDistances[j] = (acosf(p / (sqrtf(n1)*sqrtf(n2))))*180.0/3.14;
 		}
 		assignedCluster[i] = findMinimum(centroidDistances, k)+1;
-		printf("%d\n",assignedCluster[i]);
 	}
 }
 

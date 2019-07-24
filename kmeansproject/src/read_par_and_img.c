@@ -15,7 +15,6 @@ static FILE *fp ;
 static FILE *fp1;
 
 void readParAndImg (int rows,int columns,int bands,int pixels,float *image,struct parameters *par,char *namefile,char *nameimage) {
-
 	fp = fopen(namefile, "r");
 	fp1 = fopen(nameimage, "r");
     int scan = 0;
@@ -23,6 +22,14 @@ void readParAndImg (int rows,int columns,int bands,int pixels,float *image,struc
     float n;
 	int i;
 	int j;
+	if (!fp) {
+		perror("File opening failed");
+		exit(0);
+	}
+	if (!fp1) {
+			perror("File opening failed");
+			exit(0);
+	}
     rewind(fp);
     rewind(fp1);
     //image = (float *)malloc(pixels * bands * sizeof(float));
